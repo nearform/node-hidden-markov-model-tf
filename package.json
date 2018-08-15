@@ -1,0 +1,28 @@
+{
+  "name": "hidden-markov-model-tf",
+  "description": "A trainable Hidden Markov Model with Gaussian emissions using TensorFlow.js",
+  "repository": "nearform/node-hidden-markov-model-tf",
+  "version": "1.0.0",
+  "main": "lib/hmm.js",
+  "scripts": {
+    "test": "tap test/*.test.js"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-core": "^0.12.10",
+    "ml-kmeans": "^4.0.1",
+    "ndarray": "^1.0.18",
+    "ndarray-cholesky-factorization": "^1.0.2",
+    "ndarray-determinant": "^1.0.0",
+    "ndarray-inv": "^0.2.0",
+    "seedrandom": "^2.4.4"
+  },
+  "devDependencies": {
+    "@tensorflow/tfjs-node": "^0.1.11",
+    "isndarray": "^1.0.0",
+    "ndarray-pack": "^1.2.1",
+    "ndarray-unpack": "^1.0.0",
+    "tap": "^12.0.1",
+    "test-allclose": "^1.1.0"
+  },
+  "license": "Apache-2.0"
+}
