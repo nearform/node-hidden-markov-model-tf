@@ -88,7 +88,7 @@ be povided as a `tf.tensor`. Likewise most outputs are also provided as a
 The constructor takes two integer arguments. The number of hidden `states` and
 the number of `dimensions` in the Gaussian emissions.
 
-### result = await hmm.fit(tensor, {maxIterations = 100, tolerance = 0.0001, seed})
+### result = await hmm.fit(tensor, {maxIterations = 100, tolerance = 0.001, seed})
 
 The `fit` method, takes an required `tf.tensor` object. That must have the
 shape `[observations, time, dimensions]`. If you only have one observation
