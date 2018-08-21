@@ -1,5 +1,5 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const ndarrayUnpack = require("ndarray-unpack");
@@ -7,7 +7,7 @@ const tf = require('./tensorflow.js');
 
 const Initialize = require('../lib/initialize.js');
 
-tap.test('KMeans Initialization for mu and Sigma', async function (t) {
+test('KMeans Initialization for mu and Sigma', async function (t) {
   const info = require('./initialize.json');
   const initialize = new Initialize({
     states: info.config.states,
@@ -48,4 +48,4 @@ tap.test('KMeans Initialization for mu and Sigma', async function (t) {
   // Check that data approximatly equal
   allclose(t, muSorted, info.output.mu, { rtol: 1e-5, atol: 0.5 });
   allclose(t, SigmaSorted, info.output.Sigma, { rtol: 1e-5, atol: 0.5 });
-}).catch(tap.threw);
+});

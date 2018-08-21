@@ -1,12 +1,12 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
 
-tap.test('log_likelihood by using forward algorithm', async function (t) {
+test('log_likelihood by using forward algorithm', async function (t) {
   const info = require('./log_likelihood.json');
   const hmm = new HMM({
     states: info.config.states,
@@ -32,4 +32,4 @@ tap.test('log_likelihood by using forward algorithm', async function (t) {
 
   // Check that data approximatly equal
   allclose(t, logLikelihoodView, info.output, { rtol: 1e-04, atol: 1e-1 });
-}).catch(tap.threw);
+});

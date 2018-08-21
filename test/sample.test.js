@@ -1,5 +1,5 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const ndarrayUnpack = require("ndarray-unpack");
@@ -7,7 +7,7 @@ const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
 
-tap.test('sampling from HMM distribution', async function (t) {
+test('sampling from HMM distribution', async function (t) {
   const info = require('./sample.json');
   const hmm = new HMM({
     states: info.config.states,
@@ -74,4 +74,4 @@ tap.test('sampling from HMM distribution', async function (t) {
   allclose(t, ASorted, info.input.A, { rtol: 1e-5, atol: 1e-1 });
   allclose(t, muSorted, info.input.mu, { rtol: 1e-5, atol: 1e-1 });
   allclose(t, SigmaSorted, info.input.Sigma, { rtol: 1e-5, atol: 1e-1 });
-}).catch(tap.threw);
+});

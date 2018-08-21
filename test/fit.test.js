@@ -1,5 +1,5 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const ndarrayUnpack = require("ndarray-unpack");
@@ -7,7 +7,7 @@ const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
 
-tap.test('fit uses EM-algorithm correctly', async function (t) {
+test('fit uses EM-algorithm correctly', async function (t) {
   const info = require('./fit.json');
   const hmm = new HMM({
     states: info.config.states,
@@ -67,4 +67,4 @@ tap.test('fit uses EM-algorithm correctly', async function (t) {
   allclose(t, muSorted, info.output.tensorflow.mu);
   allclose(t, SigmaSorted, info.output.tensorflow.Sigma,
            { rtol: 1e-5, atol: 1e-4 });
-}).catch(tap.threw);
+});

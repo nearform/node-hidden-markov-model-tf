@@ -1,12 +1,12 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const tf = require('./tensorflow.js');
 
 const Gaussian = require('../lib/gaussian.js');
 
-tap.test('test Gaussian PDF calculations', async function (t) {
+test('test Gaussian PDF calculations', async function (t) {
   const info = require('./gaussian.json');
   const gaussian = tf.tidy(() => new Gaussian({
     mu: tf.tensor(info.input.mu),
@@ -22,4 +22,4 @@ tap.test('test Gaussian PDF calculations', async function (t) {
   const pdfView = ndarray(await pdf.data(), pdf.shape);
 
   allclose(t, pdfView, info.output, { rtol: 1e-01, atol: 1e-09 });
-}).catch(tap.threw);
+});

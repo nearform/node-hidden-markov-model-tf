@@ -1,12 +1,12 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
 
-tap.test('expectation step in EM-algorithm', async function (t) {
+test('expectation step in EM-algorithm', async function (t) {
   const info = require('./expectation.json');
   const hmm = new HMM({
     states: info.config.states,
@@ -37,4 +37,4 @@ tap.test('expectation step in EM-algorithm', async function (t) {
 
   allclose(t, ndarray(await gamma.data(), gamma.shape), info.output.gamma);
   allclose(t, ndarray(await xi.data(), xi.shape), info.output.xi);
-}).catch(tap.threw);
+});

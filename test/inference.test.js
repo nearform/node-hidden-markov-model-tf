@@ -1,12 +1,12 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
 
-tap.test('inference using viterbi', async function (t) {
+test('inference using viterbi', async function (t) {
   const info = require('./inference.json');
   const hmm = new HMM({
     states: info.config.states,
@@ -30,4 +30,4 @@ tap.test('inference using viterbi', async function (t) {
   // Check that data approximatly equal
   allclose(t, statesView, info.output.hmmlearn);
   allclose(t, statesView, info.output.tensorflow);
-}).catch(tap.threw);
+});

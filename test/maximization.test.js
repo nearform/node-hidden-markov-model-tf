@@ -1,12 +1,12 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
 
-tap.test('maximization step in EM-algorithm', async function (t) {
+test('maximization step in EM-algorithm', async function (t) {
   const info = require('./maximization.json');
   const hmm = new HMM({
     states: info.config.states,
@@ -34,4 +34,4 @@ tap.test('maximization step in EM-algorithm', async function (t) {
   allclose(t, ndarray(await A.data(), A.shape), info.output.A);
   allclose(t, ndarray(await mu.data(), mu.shape), info.output.mu);
   allclose(t, ndarray(await Sigma.data(), Sigma.shape), info.output.Sigma);
-}).catch(tap.threw);
+});

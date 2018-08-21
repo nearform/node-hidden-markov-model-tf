@@ -1,5 +1,5 @@
 
-const tap = require('tap');
+const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
 const ndarrayUnpack = require("ndarray-unpack");
@@ -7,7 +7,7 @@ const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
 
-tap.test('usage documentation', async function (t) {
+test('usage documentation', async function (t) {
   const [observations, time, states, dimensions] = [5, 7, 3, 2];
 
   // Configure model
