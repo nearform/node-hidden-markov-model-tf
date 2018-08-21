@@ -49,3 +49,55 @@ test('KMeans Initialization for mu and Sigma', async function (t) {
   allclose(t, muSorted, info.output.mu, { rtol: 1e-5, atol: 0.5 });
   allclose(t, SigmaSorted, info.output.Sigma, { rtol: 1e-5, atol: 0.5 });
 });
+
+test('KMeans Initialization for alone observations', async function (t) {
+  const initialize = new Initialize({
+    states: 2,
+    dimensions: 1
+  });
+
+  const emissions = tf.tensor([[
+    [1.1], [0.9], [1.0], [100]
+  ]]);
+
+  const [mu, Sigma] = await initialize.compute(emissions, {
+    maxIterations: 100,
+    tolerance: 1e-3,
+    seed: 2
+  });
+
+  const muView = ndarray(await mu.data(), mu.shape);
+  const SigmaView = ndarray(await Sigma.data(), Sigma.shape);
+
+  allclose(t, muView, [[100], [1]]);
+  allclose(t, SigmaView, [
+    [[2450]],
+    [[0.01]]
+  ], { rtol: 1e-5, atol: 0.5 });
+})
+
+test('KMeans Initialization for one state', async function (t) {
+  const initialize = new Initialize({
+    states: 2,
+    dimensions: 1
+  });
+
+  const emissions = tf.tensor([[
+    [1], [1], [1]
+  ]]);
+
+  const [mu, Sigma] = await initialize.compute(emissions, {
+    maxIterations: 100,
+    tolerance: 1e-3,
+    seed: 2
+  });
+
+  const muView = ndarray(await mu.data(), mu.shape);
+  const SigmaView = ndarray(await Sigma.data(), Sigma.shape);
+
+  allclose(t, muView, [[1], [1]]);
+  allclose(t, SigmaView, [
+    [[0.000001]],
+    [[0.000001]]
+  ]);
+})
