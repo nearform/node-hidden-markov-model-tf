@@ -2,7 +2,7 @@
 const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
-const ndarrayUnpack = require("ndarray-unpack");
+const ndarrayUnpack = require('ndarray-unpack');
 const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
@@ -22,7 +22,7 @@ test('sampling from HMM distribution', async function (t) {
   });
 
   // Sample data given the distribution
-  const { states, emissions } = hmm.sample({
+  const { emissions } = hmm.sample({
     observations: info.config.observations,
     time: info.config.time,
     seed: 1
@@ -33,7 +33,7 @@ test('sampling from HMM distribution', async function (t) {
   t.ok(results.converged);
 
   // Get parameters for the fitted model
-  const {pi, A, mu, Sigma} = hmm.getParameters();
+  const { pi, A, mu, Sigma } = hmm.getParameters();
 
   // Fetch data and make a view
   const piView = ndarray(await pi.data(), pi.shape);
