@@ -2,7 +2,7 @@
 const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
-const ndarrayUnpack = require("ndarray-unpack");
+const ndarrayUnpack = require('ndarray-unpack');
 const tf = require('./tensorflow.js');
 
 const Initialize = require('../lib/initialize.js');
@@ -74,7 +74,7 @@ test('KMeans Initialization for alone observations', async function (t) {
     [[2450]],
     [[0.01]]
   ], { rtol: 1e-5, atol: 0.5 });
-})
+});
 
 test('KMeans Initialization for one state', async function (t) {
   const initialize = new Initialize({
@@ -100,4 +100,4 @@ test('KMeans Initialization for one state', async function (t) {
     [[0.000001]],
     [[0.000001]]
   ]);
-})
+});

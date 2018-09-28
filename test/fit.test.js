@@ -2,7 +2,7 @@
 const test = require('tap').test;
 const allclose = require('./allclose.js');
 const ndarray = require('ndarray');
-const ndarrayUnpack = require("ndarray-unpack");
+const ndarrayUnpack = require('ndarray-unpack');
 const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
@@ -16,7 +16,7 @@ test('fit uses EM-algorithm correctly', async function (t) {
 
   const emissions = tf.transpose(tf.tensor(info.input), [1, 0, 2]);
   const results = await hmm.fit(emissions, { tolerance: 0.0001 });
-  const {pi, A, mu, Sigma} = hmm.getParameters();
+  const { pi, A, mu, Sigma } = hmm.getParameters();
 
   t.ok(results.tolerance < 0.0001);
   t.ok(results.iterations < 10);
@@ -60,11 +60,11 @@ test('fit uses EM-algorithm correctly', async function (t) {
   allclose(t, ASorted, info.output.hmmlearn.A);
   allclose(t, muSorted, info.output.hmmlearn.mu);
   allclose(t, SigmaSorted, info.output.hmmlearn.Sigma,
-           { rtol: 1e-5, atol: 1e-4 });
+    { rtol: 1e-5, atol: 1e-4 });
 
   allclose(t, piSorted, info.output.tensorflow.pi);
   allclose(t, ASorted, info.output.tensorflow.A);
   allclose(t, muSorted, info.output.tensorflow.mu);
   allclose(t, SigmaSorted, info.output.tensorflow.Sigma,
-           { rtol: 1e-5, atol: 1e-4 });
+    { rtol: 1e-5, atol: 1e-4 });
 });

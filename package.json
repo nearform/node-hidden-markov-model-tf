@@ -5,10 +5,11 @@
   "version": "1.0.1",
   "main": "lib/hmm.js",
   "scripts": {
-    "test": "tap test/*.test.js"
+    "test": "tap test/*.test.js",
+    "lint": "standardx --fix",
+    "test-ci": "tap --100 test/*.test.js"
   },
   "dependencies": {
-    "@tensorflow/tfjs-core": "^0.12.10",
     "ml-kmeans": "^4.0.1",
     "ndarray": "^1.0.18",
     "ndarray-cholesky-factorization": "^1.0.2",
@@ -22,7 +23,17 @@
     "ndarray-pack": "^1.2.1",
     "ndarray-unpack": "^1.0.0",
     "tap": "^12.0.1",
-    "test-allclose": "^1.1.0"
+    "test-allclose": "^1.1.0",
+    "standardx": "^3.0.0"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "eslintConfig": {
+    "rules": {
+      "camelcase": 0,
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  }
 }

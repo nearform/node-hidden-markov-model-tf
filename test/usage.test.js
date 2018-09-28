@@ -23,21 +23,21 @@ test('usage documentation', async function (t) {
     ]),
     mu: tf.tensor([
       [-7.0, -8.0],
-      [-1.5,  3.7],
-      [-1.7,  1.2]
+      [-1.5, 3.7],
+      [-1.7, 1.2]
     ]),
     Sigma: tf.tensor([
-      [[ 0.12, -0.01],
-       [-0.01,  0.50]],
-      [[ 0.21,  0.05],
-       [ 0.05,  0.03]],
-      [[ 0.37,  0.35],
-       [ 0.35,  0.44]]
+      [[0.12, -0.01],
+        [-0.01, 0.50]],
+      [[0.21, 0.05],
+        [0.05, 0.03]],
+      [[0.37, 0.35],
+        [0.35, 0.44]]
     ])
   });
 
   // Sample data
-  const sample = hmm.sample({observations, time});
+  const sample = hmm.sample({ observations, time });
   t.deepEqual(sample.states.shape, [observations, time]);
   t.deepEqual(sample.emissions.shape, [observations, time, dimensions]);
 
@@ -57,7 +57,7 @@ test('usage documentation', async function (t) {
   t.deepEqual(logLikelihood.shape, [observations]);
 
   // Get parameters
-  const {pi, A, mu, Sigma} = hmm.getParameters();
+  const { pi, A, mu, Sigma } = hmm.getParameters();
   t.deepEqual(pi.shape, [states]);
   t.deepEqual(A.shape, [states, states]);
   t.deepEqual(mu.shape, [states, dimensions]);
@@ -67,7 +67,7 @@ test('usage documentation', async function (t) {
 test('usage mistakes in states', async function (t) {
   // Uneven numbers should not be accepted as states.
   t.throws(
-    () =>  new HMM({
+    () => new HMM({
       states: 1.5,
       dimensions: 2
     }),
@@ -75,7 +75,7 @@ test('usage mistakes in states', async function (t) {
   );
   // Other types than number should not be accepted as states.
   t.throws(
-    () =>  new HMM({
+    () => new HMM({
       states: '1',
       dimensions: 2
     }),
@@ -83,7 +83,7 @@ test('usage mistakes in states', async function (t) {
   );
   // Negative or zero states should not be accepted.
   t.throws(
-    () =>  new HMM({
+    () => new HMM({
       states: 0,
       dimensions: 2
     }),
@@ -94,7 +94,7 @@ test('usage mistakes in states', async function (t) {
 test('usage mistakes in dimensions', async function (t) {
   // Uneven numbers should not be accepted as states.
   t.throws(
-    () =>  new HMM({
+    () => new HMM({
       states: 1,
       dimensions: 1.5
     }),
@@ -102,7 +102,7 @@ test('usage mistakes in dimensions', async function (t) {
   );
   // Other types than number should not be accepted as states.
   t.throws(
-    () =>  new HMM({
+    () => new HMM({
       states: 1,
       dimensions: '1'
     }),
@@ -110,7 +110,7 @@ test('usage mistakes in dimensions', async function (t) {
   );
   // Negative states should not be accepted.
   t.throws(
-    () =>  new HMM({
+    () => new HMM({
       states: 1,
       dimensions: -1
     }),
