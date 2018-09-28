@@ -13,7 +13,7 @@ lint: &lint
 
 coverage: &coverage
   name: Coverage
-  command: npm run ci-cov
+  command: npm run test-ci
 
 build_and_test: &build_and_test
   - checkout
@@ -30,7 +30,6 @@ build_and_test: &build_and_test
        npm update
 
   - run: *lint
-
 
   - run: *coverage
 
