@@ -1,8 +1,5 @@
 
 const test = require('tap').test;
-const allclose = require('./allclose.js');
-const ndarray = require('ndarray');
-const ndarrayUnpack = require("ndarray-unpack");
 const tf = require('./tensorflow.js');
 
 const HMM = require('../lib/hmm.js');
@@ -65,4 +62,58 @@ test('usage documentation', async function (t) {
   t.deepEqual(A.shape, [states, states]);
   t.deepEqual(mu.shape, [states, dimensions]);
   t.deepEqual(Sigma.shape, [states, dimensions, dimensions]);
+});
+
+test('usage mistakes in states', async function (t) {
+  // Uneven numbers should not be accepted as states.
+  t.throws(
+    () =>  new HMM({
+      states: 1.5,
+      dimensions: 2
+    }),
+    TypeError
+  );
+  // Other types than number should not be accepted as states.
+  t.throws(
+    () =>  new HMM({
+      states: '1',
+      dimensions: 2
+    }),
+    TypeError
+  );
+  // Negative or zero states should not be accepted.
+  t.throws(
+    () =>  new HMM({
+      states: 0,
+      dimensions: 2
+    }),
+    TypeError
+  );
+});
+
+test('usage mistakes in dimensions', async function (t) {
+  // Uneven numbers should not be accepted as states.
+  t.throws(
+    () =>  new HMM({
+      states: 1,
+      dimensions: 1.5
+    }),
+    TypeError
+  );
+  // Other types than number should not be accepted as states.
+  t.throws(
+    () =>  new HMM({
+      states: 1,
+      dimensions: '1'
+    }),
+    TypeError
+  );
+  // Negative states should not be accepted.
+  t.throws(
+    () =>  new HMM({
+      states: 1,
+      dimensions: -1
+    }),
+    TypeError
+  );
 });
