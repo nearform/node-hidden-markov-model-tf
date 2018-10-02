@@ -1,5 +1,7 @@
 # hidden-markov-model-tf
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nearform/node-hidden-markov-model-tf.svg)](https://greenkeeper.io/)
+
 **A trainable Hidden Markov Model with Gaussian emissions using TensorFlow.js**
 
 ## Install
