@@ -5,7 +5,7 @@ const tfrange = require('./package.json')['devDependencies']['@tensorflow/tfjs-c
 let tf;
 try {
   tf = require('@tensorflow/tfjs-core');
-} catch {
+} catch (_) {
   exit('@tensorflow/tfjs-core could not be found');
 }
 
