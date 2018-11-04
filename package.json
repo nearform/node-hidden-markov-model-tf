@@ -18,6 +18,9 @@
     "seedrandom": "^2.4.4",
     "semver": "^5.6.0"
   },
+  "peerDependencies": {
+    "@tensorflow/tfjs-core": "^0.13.9"
+  },
   "devDependencies": {
     "@tensorflow/tfjs-core": "^0.13.9",
     "@tensorflow/tfjs-node": "^0.1.19",
