@@ -16,17 +16,17 @@
     "ndarray-determinant": "^1.0.0",
     "ndarray-inv": "^0.2.0",
     "seedrandom": "^2.4.4",
-    "semver": "^5.5.1"
+    "semver": "^5.6.0"
   },
   "devDependencies": {
-    "@tensorflow/tfjs-core": "^0.13.3",
-    "@tensorflow/tfjs-node": "^0.1.18",
+    "@tensorflow/tfjs-core": "^0.13.9",
+    "@tensorflow/tfjs-node": "^0.1.19",
     "isndarray": "^1.0.0",
     "ndarray-pack": "^1.2.1",
     "ndarray-unpack": "^1.0.0",
+    "standardx": "^3.0.0",
     "tap": "^12.0.1",
-    "test-allclose": "^1.1.0",
-    "standardx": "^3.0.0"
+    "test-allclose": "^1.1.0"
   },
   "license": "Apache-2.0",
   "eslintConfig": {
