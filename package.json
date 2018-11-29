@@ -22,7 +22,7 @@
     "@tensorflow/tfjs-core": "^0.13.9"
   },
   "devDependencies": {
-    "@tensorflow/tfjs-core": "^0.13.9",
+    "@tensorflow/tfjs-core": "^0.14.0",
     "@tensorflow/tfjs-node": "^0.1.19",
     "isndarray": "^1.0.0",
     "ndarray-pack": "^1.2.1",
