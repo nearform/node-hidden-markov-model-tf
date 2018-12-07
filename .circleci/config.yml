@@ -46,9 +46,16 @@ jobs:
       - image: node:10
     steps: *build_and_test
 
+  node-v11:
+    <<: *defaults
+    docker:
+      - image: node:11
+    steps: *build_and_test
+
 workflows:
   version: 2
   node-multi-build:
     jobs:
       - node-v8
       - node-v10
+      - node-v11
