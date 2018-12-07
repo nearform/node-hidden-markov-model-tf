@@ -22,13 +22,13 @@
     "@tensorflow/tfjs-core": "^0.13.9"
   },
   "devDependencies": {
-    "@tensorflow/tfjs-core": "^0.13.9",
-    "@tensorflow/tfjs-node": "^0.1.19",
+    "@tensorflow/tfjs-core": "^0.14.1",
+    "@tensorflow/tfjs-node": "^0.1.21",
     "isndarray": "^1.0.0",
     "ndarray-pack": "^1.2.1",
     "ndarray-unpack": "^1.0.0",
     "standardx": "^3.0.0",
-    "tap": "^12.0.1",
+    "tap": "^12.1.0",
     "test-allclose": "^1.1.0"
   },
   "license": "Apache-2.0",
