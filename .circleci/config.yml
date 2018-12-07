@@ -52,3 +52,4 @@ workflows:
     jobs:
       - node-v8
       - node-v10
+      - node-v11
