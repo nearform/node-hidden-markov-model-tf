@@ -19,7 +19,7 @@
     "semver": "^5.6.0"
   },
   "peerDependencies": {
-    "@tensorflow/tfjs-core": "^0.13.9"
+    "@tensorflow/tfjs-core": "^0.14.1"
   },
   "devDependencies": {
     "@tensorflow/tfjs-core": "^0.14.1",
