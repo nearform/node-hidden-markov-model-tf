@@ -15,7 +15,7 @@
     "ndarray-cholesky-factorization": "^1.0.2",
     "ndarray-determinant": "^1.0.0",
     "ndarray-inv": "^0.2.0",
-    "seedrandom": "^2.4.4",
+    "seedrandom": "^3.0.0",
     "semver": "^5.6.0"
   },
   "peerDependencies": {
