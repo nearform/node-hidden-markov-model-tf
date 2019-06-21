@@ -46,10 +46,10 @@ jobs:
       - image: node:10
     steps: *build_and_test
 
-  node-v11:
+  node-v12:
     <<: *defaults
     docker:
-      - image: node:11
+      - image: node:12
     steps: *build_and_test
 
 workflows:
@@ -58,4 +58,4 @@ workflows:
     jobs:
       - node-v8
       - node-v10
-      - node-v11
+      - node-v12
