@@ -10,7 +10,7 @@
     "test-ci": "tap --100 test/*.test.js"
   },
   "dependencies": {
-    "ml-kmeans": "^4.0.1",
+    "ml-kmeans": "^5.0.0",
     "ndarray": "^1.0.18",
     "ndarray-cholesky-factorization": "^1.0.2",
     "ndarray-determinant": "^1.0.0",
