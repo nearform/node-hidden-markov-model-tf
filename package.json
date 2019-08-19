@@ -27,7 +27,7 @@
     "isndarray": "^1.0.0",
     "ndarray-pack": "^1.2.1",
     "ndarray-unpack": "^1.0.0",
-    "standardx": "^3.0.0",
+    "standardx": "^5.0.0",
     "tap": "^14.2.4",
     "test-allclose": "^1.1.0"
   },
