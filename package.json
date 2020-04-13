@@ -16,7 +16,7 @@
     "ndarray-determinant": "^1.0.0",
     "ndarray-inv": "^0.2.0",
     "seedrandom": "^3.0.1",
-    "semver": "^6.1.1"
+    "semver": "^7.2.3"
   },
   "peerDependencies": {
     "@tensorflow/tfjs-core": "^1.2.1"
