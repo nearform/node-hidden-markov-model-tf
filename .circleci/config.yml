@@ -34,28 +34,28 @@ build_and_test: &build_and_test
   - run: *coverage
 
 jobs:
-  node-v8:
-    <<: *defaults
-    docker:
-      - image: node:8
-    steps: *build_and_test
-
-  node-v10:
-    <<: *defaults
-    docker:
-      - image: node:10
-    steps: *build_and_test
-
   node-v12:
     <<: *defaults
     docker:
       - image: node:12
     steps: *build_and_test
 
+  node-v14:
+    <<: *defaults
+    docker:
+      - image: node:14
+    steps: *build_and_test
+
+  node-v16:
+    <<: *defaults
+    docker:
+      - image: node:16
+    steps: *build_and_test
+
 workflows:
   version: 2
   node-multi-build:
     jobs:
-      - node-v8
-      - node-v10
       - node-v12
+      - node-v14
+      - node-v16
