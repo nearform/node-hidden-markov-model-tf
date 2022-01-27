@@ -10,6 +10,8 @@
 $ npm install hidden-markov-model-tf
 ```
 
+Require: Node v12+
+
 ## Usage
 
 ```js
