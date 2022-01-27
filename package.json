@@ -2,7 +2,7 @@
   "name": "hidden-markov-model-tf",
   "description": "A trainable Hidden Markov Model with Gaussian emissions using TensorFlow.js",
   "repository": "nearform/node-hidden-markov-model-tf",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.test.js",
